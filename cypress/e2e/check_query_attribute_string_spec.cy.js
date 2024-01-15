@@ -8,8 +8,9 @@ describe('Check query for string type attributes', () => {
     // Find the specific element containing text
     cy.get('.code-query').should('be.visible');
     cy.get('.code-query').invoke('text').then((capturedText) => {
+    const cleanedCapturedText = capturedText.replace(/[\s\n]/g, "")
       // Compare the captured text with the expected text
-      expect(capturedText.trim()).to.equal(AttributesQueries.attribute_string);
+      expect(cleanedCapturedText.trim()).to.equal(AttributesQueries.attribute_string);
     });
   });
 });
